@@ -1,0 +1,11 @@
+﻿  Application.cpp
+c:\users\ajaybilwa\downloads\repos\viewer\dependencies\includes\grid.h(25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(108): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(190): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(191): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(195): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(196): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(198): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(199): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(208): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Viewer.vcxproj -> C:\Users\ajaybilwa\Downloads\repos\Viewer\bin\Win32\Debug\Viewer.exe

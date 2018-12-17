@@ -1,0 +1,2 @@
+﻿  Application.cpp
+C:\Users\ajaybilwa\Downloads\repos\Viewer\bin\intermediates\x64\Debug\Application.obj : fatal error LNK1112: module machine type 'x86' conflicts with target machine type 'x64'
