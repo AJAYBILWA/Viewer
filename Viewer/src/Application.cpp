@@ -11,8 +11,7 @@
 #include "Renderer.h"
 #include "camera.h"
 #include "grid.h"
-//#include <camera.h>
-
+#include "human.h"
 #include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -98,6 +97,8 @@ int main()
 	// position attribute
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+
+	hello();
 
 	// render loop
 	// -----------
