@@ -11,7 +11,6 @@
 #include "Renderer.h"
 #include "camera.h"
 #include "grid.h"
-//#include <camera.h>
 
 #include <iostream>
 
