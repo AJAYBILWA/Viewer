@@ -5,14 +5,18 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <iostream>
 #include<vector>
 
 #include <shader_s.h>
 #include "Renderer.h"
 #include "camera.h"
 #include "grid.h"
-#include "human.h"
-#include <iostream>
+
+#define GLFW_EXPOSE_NATIVE_WIN32
+#define GLFW_EXPOSE_NATIVE_WGL
+
+#include <GLFW/glfw3native.h>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -36,7 +40,38 @@ float lastFrame = 0.0f;
 float gridLineWidth = 1.0f;
 unsigned int numOfGridLines = 20;
 
-int main()
+GLFWwindow* window;
+
+void AddMenus(HWND hWnd)
+{
+	HMENU hMenu;
+
+	hMenu = CreateMenu();
+
+	AppendMenu(hMenu, MF_STRING, NULL, "File");
+
+	SetMenu(hWnd, hMenu);
+}
+
+LRESULT CALLBACK WndProc(HWND    hWnd,                   // Handle For This Window
+	UINT    uMsg,                   // Message For This Window
+	WPARAM  wParam,                 // Additional Message Information
+	LPARAM  lParam)
+{
+	switch (uMsg)
+	{
+	case WM_CREATE:
+		AddMenus(hWnd);
+		break;
+	case WM_DESTROY: 
+		PostQuitMessage(0);
+		break;
+	}
+
+	return DefWindowProc(hWnd, uMsg, wParam, lParam);
+}
+
+bool glfwSetup()
 {
 	// glfw: initialize and configure
 	// ------------------------------
@@ -51,12 +86,12 @@ int main()
 
 	// glfw window creation
 	// --------------------
-	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "VIEWER", NULL, NULL);
+	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "VIEWER", NULL, NULL);
 	if (window == NULL)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
-		return -1;
+		return false;
 	}
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
@@ -64,14 +99,84 @@ int main()
 	glfwSetScrollCallback(window, scroll_callback);
 
 	// tell GLFW to capture our mouse
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-	// glad: load all OpenGL function pointers
+	return true;
+}
+
+bool glewSetup()
+{
+	// glew: load all OpenGL function pointers
 	// ---------------------------------------
 	if (glewInit() != GLEW_OK) {
 		std::cout << "ERROR\n";
+		return false;
 	}
 
+	return true;
+}
+
+int DrawGLScene(GLvoid)                             // Here's Where We Do All The Drawing
+{
+	processInput(window);
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);         // Clear The Screen And The Depth Buffer
+	return TRUE;                                // Everything Went OK
+}
+
+int WINAPI WinMain(HINSTANCE   hInstance,              // Instance
+	HINSTANCE   hPrevInstance,              // Previous Instance
+	LPSTR       lpCmdLine,              // Command Line Parameters
+	int     nCmdShow)
+{
+	WNDCLASS wc = {0};
+	
+	wc.lpfnWndProc = WndProc;                // WndProc Handles Messages
+	wc.hInstance = hInstance;
+	wc.hbrBackground = NULL;                     // No Background Required For GL
+	wc.hCursor = LoadCursor(NULL, IDC_ARROW);          // Load The Arrow Pointer
+	wc.lpszClassName = "OpenGL";                 // Set The Class Name
+
+	if (!RegisterClass(&wc))
+	{
+		return -1;
+	}
+
+	MSG msg = {0};
+	BOOL    done = FALSE;
+
+	if (!glfwSetup() || !glewSetup())
+	{
+		return 0;
+	}
+
+	HWND hWnd = glfwGetWin32Window(window);
+
+	while (GetMessage(&msg, hWnd, NULL, NULL))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);             // Draw The Scene
+
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+		
+	}
+
+	return 0;                           // Exit The Program
+}
+
+int main2()
+{
+	
+
+	
+
+	
+
+	HWND hWnd = glfwGetWin32Window(window);
+	std::cout << hWnd << endl;
 	// configure global opengl state
 	// -----------------------------
 	glEnable(GL_DEPTH_TEST);
@@ -98,7 +203,6 @@ int main()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	hello();
 
 	// render loop
 	// -----------
