@@ -1,5 +1,6 @@
 #ifndef GRID_H
 #define GRID_H
+
 #include<vector>
 
 class Grid
@@ -8,17 +9,25 @@ public:
 	float* vertices;
 	int verticesSize;
 
+	Grid()
+	{
+
+	}
 	Grid(unsigned int lines, float lineSpacing);
+	~Grid()
+	{
+
+	}
 };
 
 Grid::Grid(unsigned int noOfLines, float lineSpacing)
 {
 	if (noOfLines < 2) {
-		cout << "Provide grid lines count greater then 2\n";
+		std::cout << "Provide grid lines count greater then 2\n";
 		return;
 	}
-	
-	vector<float> vertex;
+
+	std::vector <float> vertex;
 	float halfDistance;
 
 	if (noOfLines % 2 == 0) {
@@ -35,7 +44,7 @@ Grid::Grid(unsigned int noOfLines, float lineSpacing)
 		vertex.push_back(i);
 		vertex.push_back(0.0f);
 		vertex.push_back(halfDistance);
-		
+
 		vertex.push_back(i);
 		vertex.push_back(0.0f);
 		vertex.push_back(-halfDistance);
