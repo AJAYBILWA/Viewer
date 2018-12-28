@@ -279,6 +279,9 @@ BOOL CreateGLWindow(char* title, int width, int height, int bits)
 		MessageBox(NULL, "Initialization Failed.", "ERROR", MB_OK | MB_ICONEXCLAMATION);
 		return FALSE;                           // Return FALSE
 	}
+
+	//ShellExecute(hWnd, "open", "C:/Users/ajaybilwa/Downloads/AR/262Tut01WebAR/finished/index.html", NULL, NULL, SW_SHOWNORMAL);
+
 	return TRUE;                                // Success
 }
 
