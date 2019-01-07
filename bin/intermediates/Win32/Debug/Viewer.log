@@ -1,13 +1,1 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (C:\Users\ajaybilwa\Downloads\repos\Viewer\bin\intermediates\Win32\Debug\) contains files shared from another project (human.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Application.cpp
-c:\users\ajaybilwa\downloads\repos\viewer\dependencies\includes\grid.h(34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(109): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(241): warning C4838: conversion from 'int' to 'BYTE' requires a narrowing conversion
-c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(365): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(366): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(479): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(480): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(482): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(483): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(490): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Viewer.vcxproj -> C:\Users\ajaybilwa\Downloads\repos\Viewer\bin\Win32\Debug\Viewer.exe
+﻿

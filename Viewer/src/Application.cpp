@@ -19,7 +19,6 @@
 #define keyS 0x53
 #define keyD 0x44
 
-
 HGLRC           hRC = NULL;                           // Permanent Rendering Context
 HDC             hDC = NULL;                           // Private GDI Device Context
 HWND            hWnd = NULL;                          // Holds Our Window Handle
@@ -280,8 +279,6 @@ BOOL CreateGLWindow(char* title, int width, int height, int bits)
 		return FALSE;                           // Return FALSE
 	}
 
-	//ShellExecute(hWnd, "open", "C:/Users/ajaybilwa/Downloads/AR/262Tut01WebAR/finished/index.html", NULL, NULL, SW_SHOWNORMAL);
-
 	return TRUE;                                // Success
 }
 
@@ -292,6 +289,16 @@ LRESULT CALLBACK WndProc(HWND    hWnd,                   // Handle For This Wind
 {
 	switch (uMsg)                               // Check For Windows Messages
 	{
+	case WM_COMMAND:
+	{
+		switch (wParam)
+		{
+		case 3: 
+			ShellExecute(hWnd, "open", "C:/Users/ajaybilwa/Downloads/repos/Viewer/Dependencies/AR.exe", NULL, NULL, SW_SHOWNORMAL);
+
+		}
+		return 0;
+	}
 	case WM_CREATE:
 	{
 		AddMenus(hWnd);
@@ -454,10 +461,10 @@ void AddMenus(HWND hWnd)
 
 	hMenu = CreateMenu();
 
-	AppendMenu(hMenu, MF_STRING, NULL, "HTM");
-	AppendMenu(hMenu, MF_STRING, NULL, "BIM");
-	AppendMenu(hMenu, MF_STRING, NULL, "AR");
-	AppendMenu(hMenu, MF_STRING, NULL, "VR");
+	AppendMenu(hMenu, MF_STRING, 1, "HTM");
+	AppendMenu(hMenu, MF_STRING, 2, "BIM");
+	AppendMenu(hMenu, MF_STRING, 3, "AR");
+	AppendMenu(hMenu, MF_STRING, 4, "VR");
 
 	SetMenu(hWnd, hMenu);
 }
