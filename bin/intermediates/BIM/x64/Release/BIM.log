@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  BIM.cpp
+  dllmain.cpp
+     Creating library C:\Users\ajaybilwa\Downloads\repos\Viewer\bin\x64\Release\BIM.lib and object C:\Users\ajaybilwa\Downloads\repos\Viewer\bin\x64\Release\BIM.exp
+  Generating code
+  All 2 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  BIM.vcxproj -> C:\Users\ajaybilwa\Downloads\repos\Viewer\bin\x64\Release\BIM.dll

@@ -1,0 +1,3 @@
+﻿  Application.cpp
+c:\users\ajaybilwa\downloads\repos\viewer\viewer\src\application.cpp(245): warning C4838: conversion from 'int' to 'BYTE' requires a narrowing conversion
+C:\Users\ajaybilwa\Downloads\repos\Viewer\bin\intermediates\Viewer\x64\Debug\Application.obj : fatal error LNK1112: module machine type 'x86' conflicts with target machine type 'x64'

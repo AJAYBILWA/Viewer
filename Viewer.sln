@@ -20,6 +20,7 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VR", "VR\VR.vcxproj", "{1D9B4E6C-1344-42CB-A584-B6737548429A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{447FE466-1DE5-45AF-9790-FF1126C98158} = {447FE466-1DE5-45AF-9790-FF1126C98158}
+		{0D6E358A-B5B4-4FA4-B7F6-190245105F32} = {0D6E358A-B5B4-4FA4-B7F6-190245105F32}
 	EndProjectSection
 EndProject
 Global
@@ -68,5 +69,22 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0500A26E-A436-4A6C-B4A7-F2301C93EA7F}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Debug|x64 = Debug|x64
+		Release|Default = Release|Default
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 EndGlobal

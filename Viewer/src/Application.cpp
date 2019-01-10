@@ -1,3 +1,9 @@
+/* it is required to change the relative path (if needed) according to released viewer.exe.
+Otherwise the app won't work as expected.
+
+I used this technique for executing AR.exe
+*/
+
 #include <windows.h>                              // Header File For Windows
 #include<windowsx.h>
 #include<GLEW/glew.h>
@@ -93,7 +99,7 @@ int InitGL(GLvoid)                              // All Setup For OpenGL Goes Her
 	Shader ourShaderLocal("vShader.shader", "fShader.shader");
 	ourShader = ourShaderLocal;
 
-	Grid gridLocal(numOfGridLines, 0.5);
+	Grid gridLocal(numOfGridLines, 0.5f);
 	grid = gridLocal;
 
 	return TRUE;                                // Initialization Went OK
@@ -111,8 +117,8 @@ int DrawGLScene(unsigned int &VAO, unsigned int &VBO)                           
 	SYSTEMTIME time;
 	GetSystemTime(&time);
 	float currentFrame = time.wMinute * 60 + time.wSecond + time.wMilliseconds*0.001;
-	deltaTime = currentFrame - lastFrame;
-	lastFrame = currentFrame;
+	deltaTime = (float)(currentFrame - lastFrame);
+	lastFrame = (float)(currentFrame);
 
 	// activate shader
 	ourShader.use();
@@ -305,7 +311,10 @@ LRESULT CALLBACK WndProc(HWND    hWnd,                   // Handle For This Wind
 			Init_BIM();
 			break;
 		case 3: 
-			ShellExecute(hWnd, "open", "C:/Users/ajaybilwa/Downloads/repos/Viewer/Dependencies/AR.exe", NULL, NULL, SW_SHOWNORMAL);
+			TCHAR arFilePath[MAX_PATH];
+			GetFullPathNameA("../Dependencies/AR.exe", MAX_PATH, arFilePath, NULL);
+
+			ShellExecute(hWnd, "open", arFilePath, NULL, NULL, SW_SHOWNORMAL);
 			break;
 		case 4:
 			Init_VR();
