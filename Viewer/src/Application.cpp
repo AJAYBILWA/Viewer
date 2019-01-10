@@ -13,6 +13,11 @@
 #include "grid.h"
 #include "camera.h"
 
+//dll headers
+#include "BIM.h"
+#include "HTM.h"
+#include "VR.h"
+
 //keyboard keys
 #define keyW 0x57
 #define keyA 0x41
@@ -293,9 +298,18 @@ LRESULT CALLBACK WndProc(HWND    hWnd,                   // Handle For This Wind
 	{
 		switch (wParam)
 		{
+		case 1:
+			Init_HTM();
+			break;
+		case 2: 
+			Init_BIM();
+			break;
 		case 3: 
 			ShellExecute(hWnd, "open", "C:/Users/ajaybilwa/Downloads/repos/Viewer/Dependencies/AR.exe", NULL, NULL, SW_SHOWNORMAL);
-
+			break;
+		case 4:
+			Init_VR();
+			break;
 		}
 		return 0;
 	}
